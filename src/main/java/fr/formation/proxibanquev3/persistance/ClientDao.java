@@ -32,13 +32,14 @@ public class ClientDao extends AbstractDao<Client> {
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
 		TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_ALL_CLIENTS, Client.class);
+		
 		clients.addAll(query.getResultList());
 		return clients;
 	}
-
 	
-	public Client readClient(String firstname, String lastname) {
-		return this.read(firstname, lastname,  new Client());
+	public Client readClientByName(String firstname, String lastname) {
+		TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_CLIENT_BY_NAME, Client.class);
+		return query.setParameter("firstname", firstname).setParameter("lastname", lastname).getSingleResult();
 	}
-
+	 
 }

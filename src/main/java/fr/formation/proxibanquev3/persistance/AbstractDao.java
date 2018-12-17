@@ -44,10 +44,5 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		return true;
 	}
 	
-	@SuppressWarnings("unchecked")
-	protected T readByName(String lastname, String firstname, T entity) {
-		T result = null;
-		result = (T) this.em.find(entity.getClass(), lastname,firstname);
-		return result;
-	}
+	
 }

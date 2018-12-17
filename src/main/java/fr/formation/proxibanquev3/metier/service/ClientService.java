@@ -61,8 +61,10 @@ public class ClientService {
 	 * @param id L'id du client � r�cup�rer.
 	 * @return Le client.
 	 */
+
 	public Client read(String firstname, String lastname) {
-		return this.daoClient.readClient(firstname, lastname);
+		return this.daoClient.readClientByName(firstname, lastname);
+
 	}
 
 	/**

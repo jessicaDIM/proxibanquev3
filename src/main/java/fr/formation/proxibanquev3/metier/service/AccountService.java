@@ -96,6 +96,7 @@ public class AccountService {
 		Account compteDebite = client.getAccountById(debitId);
 		Account compteCredite = client.getAccountById(creditId);
 		if (compteDebite.getId() == compteCredite.getId()) {
+			transferOK=false;
 			return transferOK;
 		} else if (compteDebite.getBalance() - value < 0) {
 			transferOK = false;
@@ -110,15 +111,30 @@ public class AccountService {
 			return transferOK;
 		}
 	}
-	public boolean withdrawCash(Float value, Integer debitId, Integer clientId) {
+	public boolean withdrawCash(Float value, Integer accountId) {
+		
+		boolean withdrawOK = true;
+		Account compteDebite = this.accountDao.read(accountId);
+		if (value>300.00) {
+			withdrawOK=false;
+			return withdrawOK;
+		} else if (compteDebite.getBalance() - value < 0) {
+			withdrawOK = false;
+			return withdrawOK;
+		} else {
+			compteDebite.setBalance(compteDebite.getBalance() - value);
+			this.accountDao.update(compteDebite);
+			return withdrawOK;
+		}
+		
+	}
+	public boolean withdrawCheck(Integer accountId) {
+		LocalDate.now();
 		return false;
 		
 	}
-	public boolean withdrawCheck(LocalDate date, Integer clientId) {
-		return false;
-		
-	}
-	public boolean withdrawCard(LocalDate date, Integer clientId) {
+	public boolean withdrawCard(Integer accountId) {
+		LocalDate.now();
 		return false;
 		
 	}
