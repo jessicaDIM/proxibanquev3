@@ -41,10 +41,15 @@ public class IndexServlet extends HttpServlet {
 	
 		Client client = ClientService.getInstance().read(firstnameClient, lastnameClient);
 		
-		if (client != null) {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/views/menu.jsp").forward(req, resp);			
-		} else {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/views/error.jsp").forward(req, resp);	
+		if (client == null) {
+			client=ClientService.getInstance().read(lastnameClient, firstnameClient);
+			if (client==null) {
+				this.getServletContext().getRequestDispatcher("/WEB-INF/views/error.jsp").forward(req, resp);
+			}
 		}
+		Integer id= client.getId();
+		resp.sendRedirect(this.getServletContext().getContextPath() + "/menu.html?id="+id);
+				
+		
 	}
 }

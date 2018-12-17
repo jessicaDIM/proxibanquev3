@@ -42,6 +42,7 @@
                     <th class="listecompte">Id</th>
                     <th class="listecompte">Num�ro de compte</th>
                     <th class="listecompte">Solde</th>
+                    <th class="listecompte">Date d'ouverture</th>
                     <th class="listecompte">Compte �pargne</th>
                 </tr>
             </thead>
