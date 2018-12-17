@@ -43,4 +43,11 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		this.em.getTransaction().commit();
 		return true;
 	}
+	
+	@SuppressWarnings("unchecked")
+	protected T readByName(String lastname, String firstname, T entity) {
+		T result = null;
+		result = (T) this.em.find(entity.getClass(), lastname,firstname);
+		return result;
+	}
 }

@@ -1,5 +1,6 @@
 package fr.formation.proxibanquev3.metier.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,5 +109,21 @@ public class AccountService {
 
 			return transferOK;
 		}
+	}
+	public boolean withdrawCash(Float value, Integer debitId, Integer clientId) {
+		return false;
+		
+	}
+	public boolean withdrawCheck(LocalDate date, Integer clientId) {
+		return false;
+		
+	}
+	public boolean withdrawCard(LocalDate date, Integer clientId) {
+		return false;
+		
+	}
+	public AccountService update() {
+		return null;
+		
 	}
 }
