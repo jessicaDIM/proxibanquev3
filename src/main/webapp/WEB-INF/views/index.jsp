@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,8 @@
 	<section class="head"></section>
 	<h1 class="page-title">Bienvenue sur Proxibanque 3.0.</h1>
 	<div>
-		<form class="form-inline" method="post" action ="">
+
+		<form class="form-inline" method="post" action="">
   			<div class="form-group mx-sm-3 mb-2">
    				 <label for="identifiant" class="sr-only">Veuillez renseigner vos prénom et nom :  </label>
   				 <input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Prénom Nom">

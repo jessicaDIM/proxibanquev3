@@ -16,6 +16,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>MenuServlet</servlet-name>
+		<servlet-class>fr.formation.proxibanquev3.presentation.MenuServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MenuServlet</servlet-name>
+		<url-pattern>/menu.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>TransferServlet</servlet-name>
 		<servlet-class>fr.formation.proxibanquev3.presentation.TransferServlet</servlet-class>
 	</servlet>
