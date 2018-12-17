@@ -1,7 +1,14 @@
 package fr.formation.proxibanquev3.metier.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.formation.proxibanquev3.metier.entity.Account;
 import fr.formation.proxibanquev3.metier.entity.Client;
+import fr.formation.proxibanquev3.metier.entity.CurrentAccount;
+import fr.formation.proxibanquev3.metier.entity.SavingsAccount;
+import fr.formation.proxibanquev3.persistance.AccountDao;
+import fr.formation.proxibanquev3.persistance.ClientDao;
 
 public class AccountService {
 
@@ -84,7 +91,7 @@ public class AccountService {
 	public boolean transfer(Float value, Integer debitId, Integer creditId,
 			Integer clientId) {
 		boolean transferOK = true;
-		Client client = this.daoClient.read(clientId);
+		Client client = this.clientDao.read(clientId);
 		Account compteDebite = client.getAccountById(debitId);
 		Account compteCredite = client.getAccountById(creditId);
 		if (compteDebite.getId() == compteCredite.getId()) {
@@ -94,10 +101,10 @@ public class AccountService {
 			return transferOK;
 		} else {
 			compteCredite.setBalance(compteCredite.getBalance() + value);
-			this.daoAccount.update(compteCredite);
+			this.accountDao.update(compteCredite);
 
 			compteDebite.setBalance(compteDebite.getBalance() - value);
-			this.daoAccount.update(compteDebite);
+			this.accountDao.update(compteDebite);
 
 			return transferOK;
 		}

@@ -1,5 +1,12 @@
 package fr.formation.proxibanquev3.persistance;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import fr.formation.proxibanquev3.metier.entity.Client;
+
 /**
  * Classe regroupant les traitements � effectuer sur les clients. Respecte le
  * design pattern singleton.
