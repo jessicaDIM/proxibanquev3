@@ -49,7 +49,5 @@ public class IndexServlet extends HttpServlet {
 		}
 		Integer id= client.getId();
 		resp.sendRedirect(this.getServletContext().getContextPath() + "/menu.html?id="+id);
-				
-		
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +41,10 @@
             <thead>
                 <tr>
                     <th class="listecompte">Id</th>
-                    <th class="listecompte">Num�ro de compte</th>
+                    <th class="listecompte">Numéro de compte</th>
                     <th class="listecompte">Solde</th>
                     <th class="listecompte">Date d'ouverture</th>
-                    <th class="listecompte">Compte �pargne</th>
+                 
                 </tr>
             </thead>
             <tbody>
@@ -53,11 +54,13 @@
                     <td class="listecompte">${account.number}</td>
                     <td class="listecompte">${account.balance}</td>
                     <td class="listecompte">${account.openDate}</td>
-                    <td class="listecompte">${account.type}</td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
+	</div>
+	<div>
+		
 	</div>
 </body>
 </html>
