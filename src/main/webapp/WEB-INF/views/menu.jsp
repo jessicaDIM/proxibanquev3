@@ -55,7 +55,7 @@
                     <td class="listecompte">${account.id}</td>
                     <td class="listecompte">${account.number}</td>
                     <td class="listecompte">${account.balance}</td>
-                    <td class="listecompte">${account.openDate}</td>
+<%--                     <td class="listecompte">${account.openDate}</td> --%>
                 </tr>
             </c:forEach>
             </tbody>
