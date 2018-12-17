@@ -31,6 +31,8 @@ public class MenuServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idClient = Integer.parseInt(req.getParameter("id"));
+		//Client modify =ClientService.getInstance().getOne(idclient);
+		//req.setAttribute("client", modify);
 		List<Account> accounts=AccountService.getInstance().getAll(idClient);
 		req.setAttribute("accounts", accounts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/menu.jsp").forward(req, resp);
