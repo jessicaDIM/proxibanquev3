@@ -30,9 +30,10 @@ public class CreditCard {
 	public CreditCard() {
 	}
 	
-	public CreditCard(String number, String type) {
+	public CreditCard(String number, String type, LocalDate expirationDate) {
 		this.number = number;
 		this.type = type;
+		this.expirationDate=expirationDate;
 	}
 
 	public Integer getId() {

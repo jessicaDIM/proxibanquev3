@@ -1,6 +1,8 @@
 package fr.formation.proxibanquev3.metier.service;
 
 import fr.formation.proxibanquev3.metier.entity.Client;
+import fr.formation.proxibanquev3.persistance.AccountDao;
+import fr.formation.proxibanquev3.persistance.ClientDao;
 
 /**
  * Clsse regroupant les traitements � effectuer sur les clients. Respecte le

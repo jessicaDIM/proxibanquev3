@@ -1,5 +1,10 @@
 package fr.formation.proxibanquev3.metier.service;
 
+import java.time.LocalDate;
+
+import fr.formation.proxibanquev3.metier.entity.CreditCard;
+import fr.formation.proxibanquev3.persistance.CreditCardDao;
+
 public class CreditCardService {
 	
 	private static final CreditCardService INSTANCE = new CreditCardService();
@@ -20,8 +25,8 @@ public class CreditCardService {
 	}
 
 	
-	public CreditCard create(String number, String type) {
-		return this.daoCard.create(new CreditCard(number, type));
+	public CreditCard create(String number, String type, LocalDate expirationDate) {
+		return this.daoCard.create(new CreditCard(number, type, expirationDate));
 	}
 
 	public void delete(Integer id) {

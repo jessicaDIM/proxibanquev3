@@ -71,7 +71,7 @@ public class Client {
 	private Address address;
 
 	public Client() {
-		this.accounts = new ArrayList()<>();
+		this.accounts = new ArrayList<>();
 	}
 
 	public Client(String firstname, String lastname, String email,

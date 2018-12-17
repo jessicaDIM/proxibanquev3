@@ -1,11 +1,17 @@
 package fr.formation.proxibanquev3.presentation;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.formation.proxibanquev3.metier.entity.Account;
+import fr.formation.proxibanquev3.metier.entity.Client;
+import fr.formation.proxibanquev3.metier.service.AccountService;
+import fr.formation.proxibanquev3.metier.service.ClientService;
 
 /**
  * Classe permettant de gerer les transferts
@@ -58,7 +64,7 @@ public class TransferServlet extends HttpServlet {
         Integer clientId = Integer.parseInt(req.getParameter("id"));
         Float val = Float.parseFloat(req.getParameter("value"));
 
-        Boolean transferOK = ClientService.getInstance().transfer(val, compteDebite, compteCredite, clientId);
+        Boolean transferOK = AccountService.getInstance().transfer(val, compteDebite, compteCredite, clientId);
 
         if (!transferOK) {
             req.setAttribute("transferRate", transferOK);
