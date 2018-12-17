@@ -35,4 +35,14 @@
 		<url-pattern>/transfer.html</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>WithdrawalServlet</servlet-name>
+		<servlet-class>fr.formation.proxibanquev3.presentation.WithdrawalServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>WithdrawalServlet</servlet-name>
+		<url-pattern>/withdrawal.html</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
