@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Acceuil</title>
+<title>Accueil</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +41,10 @@
             <thead>
                 <tr>
                     <th class="listecompte">Id</th>
-                    <th class="listecompte">Num�ro de compte</th>
+                    <th class="listecompte">Numéro de compte</th>
                     <th class="listecompte">Solde</th>
                     <th class="listecompte">Date d'ouverture</th>
-                    <th class="listecompte">Compte �pargne</th>
+                    <th class="listecompte">Compte épargne</th>
                 </tr>
             </thead>
             <tbody>
