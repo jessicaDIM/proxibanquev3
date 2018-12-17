@@ -74,9 +74,7 @@ public class Client {
 		this.accounts = new ArrayList<>();
 	}
 
-	public Client(String firstname, String lastname, String email,
-			String address) {
-		this();
+	public Client(String firstname, String lastname) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		
@@ -85,7 +83,7 @@ public class Client {
 
 	public Client(Integer id, String firstname, String lastname, String email,
 			String address) {
-		this(firstname, lastname, email, address);
+		this(firstname, lastname);
 		this.id = id;
 	}
 

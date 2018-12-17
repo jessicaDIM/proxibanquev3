@@ -12,8 +12,7 @@ import fr.formation.proxibanquev3.persistance.ClientDao;
  *
  */
 public class ClientService {
-	private static final ClientService INSTANCE = new ClientService(
-			AccountDao.getInstance(), ClientDao.getInstance());
+	private static final ClientService INSTANCE = new ClientService(AccountDao.getInstance(), ClientDao.getInstance());
 	private ClientDao daoClient;
 	private AccountDao daoAccount;
 
@@ -62,8 +61,8 @@ public class ClientService {
 	 * @param id L'id du client � r�cup�rer.
 	 * @return Le client.
 	 */
-	public Client read(String lastname, String firstname) {
-		return this.daoClient.readClient(lastname,firstname);
+	public Client read(String firstname, String lastname) {
+		return this.daoClient.readClient(firstname, lastname);
 	}
 
 	/**

@@ -35,13 +35,28 @@
 	<section class="head"></section>
 	<h1 class="page-title">Bienvenue sur Proxibanque 3.0.</h1>
 	<div>
-		<form class="form-inline">
-  			<div class="form-group mx-sm-3 mb-2">
-   				 <label for="inputPassword2" class="sr-only">Veuillez renseigner vos prénom et nom :  </label>
-  				 <input type="text" class="form-control" id="identifiant" placeholder="Prénom Nom">
-  			</div>
-  			<button type="submit" class="btn btn-primary mb-2">Valider</button>
-		</form>
+		<table class="table table-hover">
+            
+            <thead>
+                <tr>
+                    <th class="listecompte">Id</th>
+                    <th class="listecompte">Num�ro de compte</th>
+                    <th class="listecompte">Solde</th>
+                    <th class="listecompte">Compte �pargne</th>
+                </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="account" items ="${accounts}">
+                <tr>    
+                    <td class="listecompte">${account.id}</td>
+                    <td class="listecompte">${account.number}</td>
+                    <td class="listecompte">${account.balance}</td>
+                    <td class="listecompte">${account.openDate}</td>
+                    <td class="listecompte">${account.type}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
 	</div>
 </body>
 </html>

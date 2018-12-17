@@ -37,8 +37,8 @@ public class ClientDao extends AbstractDao<Client> {
 	}
 
 	
-	public Client readClient(String lastname, String firstname) {
-		return this.read(lastname, firstname, new Client());
+	public Client readClient(String firstname, String lastname) {
+		return this.read(firstname, lastname,  new Client());
 	}
 
 }
