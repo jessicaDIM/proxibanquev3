@@ -26,7 +26,7 @@ public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Methode permettant d'acceder a� menu.jsp.
+	 * Methode permettant d'acceder au menu.jsp.
 	 * Recupere l'id du client dans la requete, et renvoie en attribut dans la reponse un objet client obtenu par la fonction read de client service.
 	 * 
 	 */
@@ -39,5 +39,21 @@ public class MenuServlet extends HttpServlet {
 		req.setAttribute("accounts", accounts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/menu.jsp").forward(req, resp);
 	}
-	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer idClient=Integer.parseInt(req.getParameter("id"));
+		req.setAttribute("id", idClient);
+		String action=req.getParameter("action1");
+		switch(action) {
+		case "index" : 
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html?id="+idClient);
+			break;
+		case "withdrawal" :
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/withdrawal.html?id="+idClient);
+			break;
+		case "transfer" :
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/transfer.html?id="+idClient);
+			break;
+		}
+	}
 }

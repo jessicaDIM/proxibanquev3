@@ -38,9 +38,10 @@
 	<section class="head"></section>
 	
 	<section class="account-body">
-		<c:if test="${not empty transferRate}">
-			<h1 class="page-title">Erreur : Le compte � debiter aura un solde negatif avec le
-				montant renseign�</h1>
+		<c:if test="${not empty message }">
+			<div style="color:red;text-align:center;size:x-large">
+				 ${message}		
+			</div>
 		</c:if>
 	
 		<c:if test="${fn:length(accounts) > 1}">
@@ -50,10 +51,10 @@
 				
 					<div class ="account-list">
 						<div class="left-list">
-							<h2>Compte � d�biter</h2>
+							<h2>Compte à débiter</h2>
 							<table>
 								<tr>
-									<th> Num�ro de compte </th>
+									<th> Numéro de compte </th>
 									<th class="balance"> Solde en &#8364 </th>
 								</tr>
 								<c:forEach var="account" items="${accounts}">
@@ -67,10 +68,10 @@
 							</table>
 						</div>
 						<div class="right-list">
-							<h2>Compte � cr�diter</h2>
+							<h2>Compte à créditer</h2>
 							<table>
 								<tr>
-									<th> Num�ro de compte </th>
+									<th> Numéro de compte </th>
 									<th class="balance"> Solde en &#8364 </th>
 								</tr>
 								<c:forEach var="account" items="${accounts}">
@@ -96,7 +97,7 @@
 		</c:if>
 		<div class="footer-button">
 			<a href="index.html">
-				<button class="button">Retour � l'accueil</button>
+				<button class="button">Retour à l'accueil</button>
 			</a>
 		</div>
 	</section>
