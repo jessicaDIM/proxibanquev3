@@ -16,7 +16,7 @@ import fr.formation.proxibanquev3.metier.service.ClientService;
 
 
 /**
- * Classe permettant d'acceder � la page d'edition des informations d'un client.
+ * Classe permettant d'acceder à la page du tableau de bord d'un client.
  *  * @author Adminl
  *
  */
@@ -26,7 +26,7 @@ public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Methode permettant d'acceder a� menu.jsp.
+	 * Methode permettant d'acceder au menu.jsp.
 	 * Recupere l'id du client dans la requete, et renvoie en attribut dans la reponse un objet client obtenu par la fonction read de client service.
 	 * 
 	 */
