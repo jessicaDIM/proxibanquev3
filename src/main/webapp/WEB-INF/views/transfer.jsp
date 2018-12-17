@@ -43,7 +43,11 @@
 				 ${message}		
 			</div>
 		</c:if>
-	
+		<c:if test="${fn:length(accounts) <= 1}">
+			<div style="color:red;text-align:center;size:x-large">
+				 Vous ne pouvez pas effectuer de virement interne si vous n'avez pas 2 comptes au minimum	
+			</div>
+		</c:if>
 		<c:if test="${fn:length(accounts) > 1}">
 		<h1 class="page-title">Transfert pour ${client.firstname} ${client.lastname }</h1>
 			<div class="transfer-container">
@@ -61,7 +65,7 @@
 									<tr class="data">
 										<td>
 											<input type="radio" id="${account.id}" name="compteADebiter" value="${account.id}">
-											<label for="${account.id}">n�${account.number}</label>
+											<label for="${account.id}">n°${account.number}</label>
 										</td>
 										<td class="balance">${account.balance}</td>
 								</c:forEach>
@@ -77,8 +81,8 @@
 								<c:forEach var="account" items="${accounts}">
 									<tr class="data">
 										<td>
-											<input type="radio" id="${account.id + 100}" name="compteACrediter" value="${account.id}">
-											<label for="${account.id + 100}">n�${account.number}</label>
+											<input type="radio" id="${account.id}" name="compteACrediter" value="${account.id}">
+											<label for="${account.id}">n°${account.number}</label>
 										</td>
 										<td class="balance">${account.balance}</td>
 								</c:forEach>
