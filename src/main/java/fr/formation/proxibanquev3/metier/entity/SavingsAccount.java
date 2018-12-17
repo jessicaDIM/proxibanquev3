@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-import org.hibernate.annotations.Check;
 
 @Entity
 @DiscriminatorValue("SAVINGS")
@@ -15,8 +14,8 @@ public class SavingsAccount extends Account {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SavingsAccount(Integer id, String number, Float balance, String type, LocalDate openDate, Check check) {
-		super(id, number, balance, type, openDate, check);
+	public SavingsAccount(Integer id, String number, Float balance, LocalDate openDate, Cheque cheque) {
+		super(id, number, balance, openDate, cheque);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -68,6 +68,7 @@ public class Client {
 	@JoinColumn(name = "accounts_id", referencedColumnName = "id")
 	private List<Account> accounts;
 	@OneToOne
+	@JoinColumn(name="addressId")
 	private Address address;
 
 	public Client() {

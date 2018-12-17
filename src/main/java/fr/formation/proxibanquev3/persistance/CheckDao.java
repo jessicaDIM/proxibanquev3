@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
-
-import fr.formation.proxibanquev3.metier.entity.Check;
+import fr.formation.proxibanquev3.metier.entity.Cheque;
 
 /**
  * Classe regroupant les traitements � effectuer sur les chequiers. Respecte le
@@ -14,7 +13,7 @@ import fr.formation.proxibanquev3.metier.entity.Check;
  * @author Adminl
  *
  */
-public class CheckDao extends AbstractDao<Check> {
+public class CheckDao extends AbstractDao<Cheque> {
 
 	private static final CheckDao INSTANCE = new CheckDao();
 	
@@ -23,15 +22,15 @@ public class CheckDao extends AbstractDao<Check> {
 	}
 
 	@Override
-	public Check read(Integer id) {
-		return this.read(id, new Check());
+	public Cheque read(Integer id) {
+		return this.read(id, new Cheque());
 	}
 
 
 	@Override
-	public List<Check> readAll() {
-		List<Check> checks = new ArrayList<>();
-		TypedQuery<Check> query = this.em.createQuery(JpqlQueries.SELECT_ALL_CHECK, Check.class);
+	public List<Cheque> readAll() {
+		List<Cheque> checks = new ArrayList<>();
+		TypedQuery<Cheque> query = this.em.createQuery(JpqlQueries.SELECT_ALL_CHECK, Cheque.class);
 		checks.addAll(query.getResultList());
 		return checks;
 	}

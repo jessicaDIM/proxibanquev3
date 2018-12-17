@@ -1,5 +1,7 @@
 package fr.formation.proxibanquev3.metier.service;
 
+import java.util.List;
+
 import fr.formation.proxibanquev3.metier.entity.Client;
 import fr.formation.proxibanquev3.persistance.AccountDao;
 import fr.formation.proxibanquev3.persistance.ClientDao;
@@ -38,9 +40,9 @@ public class ClientService {
 	 * 
 	 * @return La liste des clients du conseiller.
 	 */
-	//public List<Client> getAll() {
-	//	return this.daoClient.readAll();
-	//}
+	public List<Client> getAll() {
+		return this.daoClient.readAll();
+	}
 
 	/**
 	 * Permet de faire un virement entre deux comptes d'un m�me client. Cette

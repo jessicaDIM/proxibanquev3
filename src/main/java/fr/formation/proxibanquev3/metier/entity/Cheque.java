@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="check")
-public class Check {
+@Table(name="cheque")
+public class Cheque {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Check {
 	@Column
 	private LocalDate receptionDate;
 	
-	public Check() {
+	public Cheque() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -30,7 +30,7 @@ public class Check {
 	 * @param sendDate
 	 * @param receptionDate
 	 */
-	public Check(Integer id, LocalDate sendDate, LocalDate receptionDate) {
+	public Cheque(Integer id, LocalDate sendDate, LocalDate receptionDate) {
 		this.id = id;
 		this.sendDate = sendDate;
 		this.receptionDate = receptionDate;

@@ -10,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Check;
+
 
 //Déclare cette classe en tant qu'entité gérée par JPA/Hibernate.
 	@Entity
@@ -22,7 +24,7 @@ import org.hibernate.annotations.Check;
 	// La stratégie SINGLE_TABLE précise qu'il n'y aura toujours qu'une seule table SQL pour tous les types de comptes.
 	@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 	// Déclare la colonne SQL à utiliser pour différencier les sous-classes de Account (soit CurrentAccount ou SavingsAccount).
-	@DiscriminatorColumn(name = "savings")
+	@DiscriminatorColumn(name = "type")
 	/*
 	 * L'annotation ci-dessous est désactivée car elle ne fonctionne que si la
 	 * classe mère Account n'est JAMAIS utilisée dans les entités. Or on l'utilise
@@ -53,11 +55,12 @@ import org.hibernate.annotations.Check;
 		@Column
 		private Float balance;
 		
-		private String type;
-		
+		@Column
 		private LocalDate openDate;
 		
-		private Check check;
+		@OneToOne
+		@JoinColumn(name="chequeId")
+		private Cheque cheque;
 
 		public Account() {
 			this.balance = 0F;
@@ -71,13 +74,12 @@ import org.hibernate.annotations.Check;
 		 * @param openDate
 		 * @param check
 		 */
-		public Account(Integer id, String number, Float balance, String type, LocalDate openDate, Check check) {
+		public Account(Integer id, String number, Float balance, LocalDate openDate, Cheque cheque) {
 			this.id = id;
 			this.number = number;
 			this.balance = balance;
-			this.type = type;
 			this.openDate = openDate;
-			this.check = check;
+			this.cheque = cheque;
 		}
 
 

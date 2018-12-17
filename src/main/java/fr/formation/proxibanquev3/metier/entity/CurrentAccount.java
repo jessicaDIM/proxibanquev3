@@ -4,20 +4,24 @@ import java.time.LocalDate;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Check;
 @Entity
 @DiscriminatorValue("CURRENT")
 public class CurrentAccount extends Account {
 
+	@OneToOne
+	@JoinColumn(name="cardId")
 	private CreditCard card;
 	
 	public CurrentAccount() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CurrentAccount(Integer id, String number, Float balance, String type, LocalDate openDate, Check check) {
-		super(id, number, balance, type, openDate, check);
+	public CurrentAccount(Integer id, String number, Float balance, LocalDate openDate, Cheque cheque) {
+		super(id, number, balance, openDate, cheque);
 		// TODO Auto-generated constructor stub
 	}
 
