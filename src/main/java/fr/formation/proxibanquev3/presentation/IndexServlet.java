@@ -2,7 +2,7 @@ package fr.formation.proxibanquev3.presentation;
 
 
 import java.io.IOException;
-import java.util.List;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +27,7 @@ public class IndexServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Client> clients = ClientService.getInstance().getAll();
-		req.setAttribute("clients", clients);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 	
