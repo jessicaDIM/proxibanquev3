@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxibanquev3.metier.entity.Account;
+import fr.formation.proxibanquev3.metier.entity.Client;
 import fr.formation.proxibanquev3.metier.service.AccountService;
+import fr.formation.proxibanquev3.metier.service.ClientService;
 
 
 
@@ -31,6 +33,8 @@ public class MenuServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idClient = Integer.parseInt(req.getParameter("id"));
+		Client client =ClientService.getInstance().read(idClient);
+		req.setAttribute("client", client);
 		List<Account> accounts=AccountService.getInstance().getAll(idClient);
 		req.setAttribute("accounts", accounts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/menu.jsp").forward(req, resp);

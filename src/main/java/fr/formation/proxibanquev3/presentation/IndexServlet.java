@@ -35,9 +35,11 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String identifiant = req.getParameter("identifiant");
+		System.out.println(identifiant);
 		String[] parts = identifiant.split(" ");
 		String firstnameClient = parts[0]; 
 		String lastnameClient = parts[1];
+		System.out.println(firstnameClient + lastnameClient);
 	
 		Client client = ClientService.getInstance().read(firstnameClient, lastnameClient);
 		

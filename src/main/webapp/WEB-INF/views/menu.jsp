@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Acceuil</title>
+<title>Accueil</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +46,7 @@
                     <th class="listecompte">Numéro de compte</th>
                     <th class="listecompte">Solde</th>
                     <th class="listecompte">Date d'ouverture</th>
-                 
+
                 </tr>
             </thead>
             <tbody>
