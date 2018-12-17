@@ -15,7 +15,7 @@ import fr.formation.proxibanquev3.metier.service.ClientService;
 
 /**
  * Classe permettant d'acceder à la page de retrait d'un client.
- *  * @author Adminl
+ *  * @author Jessica Di Marco & Sandy Colin
  *
  */
 public class WithdrawalServlet extends HttpServlet {
@@ -26,7 +26,7 @@ public class WithdrawalServlet extends HttpServlet {
 	/**
 	 * Methode permettant d'acceder au withdrawal.jsp.
 	 * Recupere l'id du client dans la requete, et renvoie en attribut dans la reponse un objet client obtenu par la fonction read de client service.
-	 * 
+	 * et une liste d'objets accounts obtenue par la fonction getAll
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -10,7 +10,13 @@ import fr.formation.proxibanquev3.metier.entity.CurrentAccount;
 import fr.formation.proxibanquev3.metier.entity.SavingsAccount;
 import fr.formation.proxibanquev3.persistance.AccountDao;
 import fr.formation.proxibanquev3.persistance.ClientDao;
-
+/**
+ * Classe regroupant les traitements à effectuer sur les ccomptes. Respecte le
+ * design pattern singleton.
+ * 
+ * @author Jessica Di Marco & Sandy Colin
+ *
+ */
 public class AccountService {
 
 	private static final AccountService INSTANCE = new AccountService();
@@ -32,7 +38,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recup�re la liste de tous les comptes associ�s � un client.
+	 * Recupère la liste de tous les comptes associés à un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes.
 	 * @return La liste des comptes du client.
@@ -47,10 +53,10 @@ public class AccountService {
 	}
 
 	/**
-	 * Recup�re la liste des comptes �pargne d'un client.
+	 * Recupère la liste des comptes épargne d'un client.
 	 * 
-	 * @param idClient L'id du client dont on veut les comptes �pargne.
-	 * @return La liste des comptes �pargne du client.
+	 * @param idClient L'id du client dont on veut les comptes épargne.
+	 * @return La liste des comptes épargne du client.
 	 */
 	public List<Account> getAllSavingAccounts(Integer idClient) {
 		List<Account> SavingAccounts = new ArrayList<>();
@@ -67,7 +73,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recup�re la liste des comptes courant d'un client.
+	 * Recupère la liste des comptes courant d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes courant.
 	 * @return La liste des comptes courant du client.
@@ -89,6 +95,16 @@ public class AccountService {
 	public AccountDao getDao() {
 		return this.accountDao;
 	}
+	
+	/**
+	 * Permet de faire un virement entre deux comptes d'un même client si le solde est suffisant
+	 * 
+	 * @param value         Le montant du virement à effectuer.
+	 * @param compteDebite  Le compte à débiter.
+	 * @param compteCredite Le compte à créditer
+	 * @return False si le virement rend le compte débité en solde
+	 *         négatif. True sinon.
+	 */
 	public boolean transfer(Float value, Integer debitId, Integer creditId,
 			Integer clientId) {
 		boolean transferOK = true;
@@ -116,6 +132,15 @@ public class AccountService {
 			return transferOK;
 		}
 	}
+	
+	
+	/**
+	 * Permet de faire un retrait sur le compte d'un client si le solde est suffisant
+	 * @param value montant du retrait à effectuer.
+	 * @param accountId le compte à débiter.
+	 * @return False si le retrait rend le compte débité en solde
+	 *         négatif. True sinon.
+	 */
 	public boolean withdrawCash(Float value, Integer accountId) {
 		
 		boolean withdrawOK = true;
@@ -132,17 +157,30 @@ public class AccountService {
 			return withdrawOK;
 		}
 		
-	}
+	}/**
+	 * Permet de faire un retrait de chéquier sous conditions de date
+	 * @param accountId le compte à débiter.
+	 * @return False si le retrait n'est pas possible (date dernier chéquier inférieur à 3 mois). True sinon.
+	 */
 	public boolean withdrawCheck(Integer accountId) {
 		LocalDate.now();
 		return false;
 		
 	}
+	/**
+	 * Permet de faire un retrait de carte bancaire si l'ancienne a atteint sa date d'expiration
+	 * 
+	 * @return False si le retrait n'est pas possible (carte tjs valide). True sinon.
+	 */
 	public boolean withdrawCard(Integer accountId) {
 		LocalDate.now();
 		return false;
 		
 	}
+	/**
+	 * Met à jour le compte
+	 * @return un objet AccountService
+	 */
 	public AccountService update() {
 		return null;
 		

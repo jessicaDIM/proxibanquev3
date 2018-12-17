@@ -1,7 +1,12 @@
 package fr.formation.proxibanquev3.persistance;
 
 import javax.persistence.EntityManager;
-
+/**
+ * 
+ * @author  Jessica Di Marco & Sandy Colin
+ *
+ * @param <T> classe qui represente le type de donnees manipulé par le DAO.
+ */
 public abstract class AbstractDao<T> implements Dao<T>{
 	
 	protected EntityManager em;
@@ -10,7 +15,10 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		this.em = MySqlConnection.getInstance().getEntityManager();
 	}
 	
-	
+	/**
+	 * {@inheritDoc}
+	 * Crée un objet T
+	 */
 	@Override
 	public T create(T entity) {
 		this.em.getTransaction().begin();
@@ -18,7 +26,10 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		this.em.getTransaction().commit();
 		return entity;
 	}
-	
+	/**
+	 * {@inheritDoc}
+	 * Met à jour un objet T
+	 */
 	@Override
 	public T update(T entity) {
 		this.em.getTransaction().begin();
@@ -26,7 +37,10 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		this.em.getTransaction().commit();
 		return entity;
 	}
-	
+	/**
+	 * {@inheritDoc}
+	 * Lit une ligne selon l'entité
+	 */
 	@SuppressWarnings("unchecked")
 	protected T read(Integer id, T entity) {
 		T result = null;
@@ -34,7 +48,10 @@ public abstract class AbstractDao<T> implements Dao<T>{
 		return result;
 	}
 
-	
+	/**
+	 * {@inheritDoc}
+	 * Supprime une ligne selon l'id
+	 */
 	@Override
 	public boolean delete(Integer id) {
 		this.em.getTransaction().begin();

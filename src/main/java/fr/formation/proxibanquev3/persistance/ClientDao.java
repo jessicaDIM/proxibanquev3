@@ -13,7 +13,7 @@ import fr.formation.proxibanquev3.metier.entity.Client;
  * Classe regroupant les traitements � effectuer sur les clients. Respecte le
  * design pattern singleton.
  * 
- * @author Adminl
+ * @author  Jessica Di Marco & Sandy Colin
  *
  */
 public class ClientDao extends AbstractDao<Client> {
@@ -23,7 +23,10 @@ public class ClientDao extends AbstractDao<Client> {
 	public static ClientDao getInstance() {
 		return ClientDao.INSTANCE;
 	}
-
+	/**
+	 * {@inheritDoc}
+	 * Lit les informations d'un client donné selon son id
+	 */
 	@Override
 	public Client read(Integer id) {
 		return this.read(id, new Client());
@@ -31,6 +34,10 @@ public class ClientDao extends AbstractDao<Client> {
 
 
 	@Override
+	/**
+	 * {@inheritDoc}
+	 * Récupère tous les clients dans une liste
+	 */
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
 		TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_ALL_CLIENTS, Client.class);
@@ -38,7 +45,10 @@ public class ClientDao extends AbstractDao<Client> {
 		clients.addAll(query.getResultList());
 		return clients;
 	}
-	
+	/**
+	 * {@inheritDoc}
+	 * Lit les informations d'un client donnée selon son nom et son prénom en récupérant son id
+	 */
 	public Client readClientByName(String firstname, String lastname) {
 		Client client=null;
 		TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_CLIENT_BY_NAME, Client.class);

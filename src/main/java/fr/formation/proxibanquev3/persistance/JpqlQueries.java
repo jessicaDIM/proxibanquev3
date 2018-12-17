@@ -3,7 +3,7 @@ package fr.formation.proxibanquev3.persistance;
 /**
  * Classe contenant sous forme de constantes l'ensemble des requetes necessaires aux manipulations de la base de donnees.
  * 
- * @author Adminl
+ * @author Jessica Di Marco & Sandy Colin
  *
  */
 public class JpqlQueries {

@@ -14,7 +14,7 @@ import fr.formation.proxibanquev3.metier.service.ClientService;
 
 /**
  * Classe permettant de gerer l'affichage de l'ecran d'accueil de l'application.
- * @author Adminl
+ * @author Jessica Di Marco & Sandy Colin
  *
  */
 public class IndexServlet extends HttpServlet {
@@ -23,7 +23,7 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Methode permettant d'acceder a� index.jsp.
+	 * Methode permettant d'acceder à index.jsp.
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,16 +31,16 @@ public class IndexServlet extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 	
-	
+	/**
+	 * Méthode permettant de récupérer le nom et le prénom du client puis de le relier à son Id pour le redirigé s'il existe vers la page menu.html
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String identifiant = req.getParameter("identifiant");
-		System.out.println(identifiant);
 		String[] parts = identifiant.split(" ");
 		String firstnameClient = parts[0]; 
 		String lastnameClient = parts[1];
-		System.out.println(firstnameClient + lastnameClient);
-	
+		
 		Client client = ClientService.getInstance().read(firstnameClient, lastnameClient);
 		
 		if (client == null) {

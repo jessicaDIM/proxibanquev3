@@ -7,10 +7,10 @@ import fr.formation.proxibanquev3.persistance.AccountDao;
 import fr.formation.proxibanquev3.persistance.ClientDao;
 
 /**
- * Clsse regroupant les traitements � effectuer sur les clients. Respecte le
+ * Classe regroupant les traitements à effectuer sur les clients. Respecte le
  * design pattern singleton.
  * 
- * @author Adminl
+ * @author Jessica Di Marco & Sandy Colin
  *
  */
 public class ClientService {
@@ -36,31 +36,21 @@ public class ClientService {
 	}
 
 	/**
-	 * Recup�re la liste de tous les clients suivis par le conseiller.
+	 * Recupère la liste de tous les clients 
 	 * 
-	 * @return La liste des clients du conseiller.
+	 * @return La liste des clients 
 	 */
 	public List<Client> getAll() {
 		return this.daoClient.readAll();
 	}
 
-	/**
-	 * Permet de faire un virement entre deux comptes d'un m�me client. Cette
-	 * m�thode ne fait pas de virement intra-compte ni de virement qui rendrait
-	 * le compte d�bit� en solde n�gatif.
-	 * 
-	 * @param value         Le montant du virement � effectuer.
-	 * @param compteDebite  Le compte � d�biter.
-	 * @param compteCredite Le compte � cr�diter
-	 * @return False si le virement aurait rendu le compte d�bit� en solde
-	 *         n�gatif. True sinon.
-	 */
+	
 	
 
 	/**
-	 * Permet de r�cup�rer un client � partir de son id dans la Base De Donn�es.
+	 * Permet de récupérer un client à partir de son nom et prénom dans la Base De Données.
 	 * 
-	 * @param id L'id du client � r�cup�rer.
+	 * @param firstname, lastname Nom et prénom du client.
 	 * @return Le client.
 	 */
 
@@ -84,6 +74,12 @@ public class ClientService {
 	public void setDaoAccount(AccountDao daoAccount) {
 		this.daoAccount = daoAccount;
 	}
+	/**
+	 * Permet de récupérer un client à partir de son id dans la Base De Données.
+	 * 
+	 * @param id L'id du client à récupérer.
+	 * @return Le client.
+	 */
 	public Client read(Integer id) {
 		return this.daoClient.read(id);
 	}

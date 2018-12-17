@@ -5,9 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Classe permettant de se lier a� la base de donnees MySQL. 
+ * Classe permettant de se lier à la base de donnees MySQL. 
  * Cette classe est un singleton.
- * @author Adminl
+ * @author Jessica Di Marco & Sandy Colin
  *
  */
 public class MySqlConnection {

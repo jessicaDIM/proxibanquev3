@@ -17,9 +17,9 @@ import fr.formation.proxibanquev3.metier.service.ClientService;
 
 /**
  * Classe permettant de gerer les transferts
- * d'argent entre les comptes d'un m�me client. permet de faire un virement si le client poss�de au moins 2 comptes.
+ * d'argent entre les comptes d'un même client. permet de faire un virement si le client possède au moins 2 comptes.
  * 
- * @author Adminl
+ * @author Jessica Di Marco & Sandy Colin
  *
  */
 
@@ -32,10 +32,9 @@ public class TransferServlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(TransferServlet.class);
 
 	/**
-	 * Methode permettant d'acceder a� la page de transfer. Recupere l'id dy
+	 * Methode permettant d'acceder à la page de transfer.jsp. Recupere l'id du
 	 * client de la requete pour agir sur ses comptes specifiquement. Renvoie en
-	 * attribut une liste des comptes dudit client. Si le client possede 1 compte
-	 * ou moins, l'utilisateur est transfere sur une page d'erreur.
+	 * attribut une liste des comptes dudit client. 
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,8 +49,7 @@ public class TransferServlet extends HttpServlet {
 	
 	
 	/**
-     * Methode permettant de traiter un formulaire rempli sur transfer.jsp. Renvoie
-     * les informations des comptes utilises pour le transfert ainsi que le montant du
+     * Methode renvoyant les informations des comptes utilises pour le transfert ainsi que le montant du
      * transfert choisi par l'utilisateur. Si le transfert echoue dans la methode
      * transfer() de ClientService, affiche un message d'erreur a l'utilisateur.
      */
