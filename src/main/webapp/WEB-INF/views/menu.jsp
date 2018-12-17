@@ -61,7 +61,20 @@
             </tbody>
         </table>
 	</div>
-	<div>
+		<div class="monindex" >
+		<form method="post" action="">
+			<div style="text-align:center">
+			<label for="action1">Selectionner une action</label>
+			<select name="action1" id="action1">
+				<option value="transfer">Faire un virement interne</option>
+				<option value="withdrawal">Réaliser un retrait</option>
+				<option value="index">Revenir à l'accueil</option>	
+			</select>
+			</div>
+			<div style="text-align:center">
+		<button class="btn btn-primary" style="text-align:center">Valider</button>
+		</div>
+		</form>
 		
 	</div>
 </body>
