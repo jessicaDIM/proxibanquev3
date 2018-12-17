@@ -63,7 +63,7 @@ public class ClientService {
 	 * @return Le client.
 	 */
 	public Client read(String lastname, String firstname) {
-		return this.daoClient.readClient(lastname,firstname);
+		return this.daoClient.readClientByName(lastname,firstname);
 	}
 
 	/**

@@ -12,5 +12,7 @@ public class JpqlQueries {
 	public static final String SELECT_ACCOUNTS = "SELECT a from Account a";
 	public static final String SELECT_ALL_CARDS = null;
 	public static final String SELECT_ALL_CHECK = null;
+	public static final String SELECT_CLIENT_BY_NAME="SELECT c FROM Client c WHERE c.lastname = :lastname and c.firstname=:firstname";
+	
 
 }
