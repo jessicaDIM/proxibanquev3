@@ -75,7 +75,10 @@
 		<button class="btn btn-primary" style="text-align:center">Valider</button>
 		</div>
 		</form>
-		
 	</div>
+	<div>
+		<button class="cheque" style="text-align:center">Demande de chéquier</button>
+	</div>
+	
 </body>
 </html>

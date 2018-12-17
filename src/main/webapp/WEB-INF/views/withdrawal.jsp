@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Transfert effectue</title>
+<title>Effectuer un retrait</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,12 +33,31 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<section class="head"></section>
-	<h1 class="page-title">Virement bancaire r�ussi. Vous pouvez revenir sur la page d'accueil.</h1>
-
+	<div>
+		<p class="name">${client.firstname} ${client.lastname}</p>
+	</div>
+	<div class="w3-container">
+	<div class="card" style="width: 18rem;">
+	  <img class="card-img-top" src="..." alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">Card title</h5>
+	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	    <a href="#" class="btn btn-primary">Go somewhere</a>
+	  </div>
+	</div>
+	<div class="card" style="width: 18rem;">
+	  <img class="card-img-top" src="..." alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">Card title</h5>
+	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	    <a href="#" class="btn btn-primary">Go somewhere</a>
+	  </div>
+	</div>
+	</div>
+	
 	<div class="transfer-button">
 		<a href="index.html">
-			<button class="button">Retour � l'accueil</button>
+			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>
 </body>
