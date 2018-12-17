@@ -2,6 +2,7 @@ package fr.formation.proxibanquev3.metier.service;
 
 import java.time.LocalDate;
 
+import fr.formation.proxibanquev3.metier.entity.Cheque;
 import fr.formation.proxibanquev3.metier.entity.CreditCard;
 import fr.formation.proxibanquev3.persistance.CheckDao;
 import fr.formation.proxibanquev3.persistance.CreditCardDao;
@@ -28,7 +29,7 @@ public class CheckService {
 
 	
 	public Cheque create(String number, String type, LocalDate expirationDate) {
-		return this.daoCard.create(new CreditCard(number, type, expirationDate));
+		return this.daoCard.create(new Cheque(number, type, expirationDate));
 	}
 
 	public void delete(Integer id) {
