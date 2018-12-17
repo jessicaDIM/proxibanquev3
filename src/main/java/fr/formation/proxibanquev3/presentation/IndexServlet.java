@@ -18,6 +18,7 @@ public class IndexServlet extends HttpServlet {
 
 
 	private static final long serialVersionUID = 1L;
+	
 	private Logger logger = Logger.getLogger(IndexServlet.class.getName());
 
 	/**
@@ -25,9 +26,9 @@ public class IndexServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ClientService service = ClientService.getInstance();
 		
-		
-		this.getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 
 }

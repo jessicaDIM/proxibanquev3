@@ -5,5 +5,24 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>proxibanquev3</display-name>
 
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>fr.formation.proxibanquev3.presentation.IndexServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/index.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TransferServlet</servlet-name>
+		<servlet-class>fr.formation.proxibanquev3.presentation.TransferServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TransferServlet</servlet-name>
+		<url-pattern>/transfer.html</url-pattern>
+	</servlet-mapping>
 	
 </web-app>
