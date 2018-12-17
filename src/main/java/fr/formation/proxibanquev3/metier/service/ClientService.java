@@ -81,5 +81,8 @@ public class ClientService {
 	public void setDaoAccount(AccountDao daoAccount) {
 		this.daoAccount = daoAccount;
 	}
+	public Client read(Integer id) {
+		return this.daoClient.read(id);
+	}
 
 }
