@@ -101,6 +101,11 @@ public class AccountService {
 		} else if (compteDebite.getBalance() - value < 0) {
 			transferOK = false;
 			return transferOK;
+		}
+			else if(value>900) {
+				transferOK = false;
+				return transferOK;
+			
 		} else {
 			compteCredite.setBalance(compteCredite.getBalance() + value);
 			this.accountDao.update(compteCredite);
