@@ -9,5 +9,14 @@
 </head>
 <body>
 	<h1>Impossible d'ajouter une carte pour ce compte.</h1>
+	
+	
+	<div class="transfer-button" style="margin-top:50px">
+
+		<a href="menu.html?id=${client.id}">
+			<button class="button">Retour au menu </button>
+		</a>
+	</div>
+	
 </body>
 </html>

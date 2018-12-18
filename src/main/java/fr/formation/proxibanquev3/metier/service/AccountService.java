@@ -32,6 +32,8 @@ public class AccountService {
 	public AccountService() {
 		this.accountDao = AccountDao.getInstance();
 		this.clientDao = ClientDao.getInstance();
+		this.cardDao = CreditCardDao.getInstance();
+		this.chequeDao = CheckDao.getInstance();
 	}
 
 	/**
@@ -251,8 +253,5 @@ public class AccountService {
 	 * Met à jour le compte
 	 * @return un objet AccountService
 	 */
-//	public AccountService update() {
-//		return null;
-//		
-//	}
+
 }
