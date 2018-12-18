@@ -37,6 +37,10 @@
 <body>
 	<section class="head"></section>
 	<h1 class="page-title">Bienvenue sur Proxibanque 3.0.</h1>
+	<div style="margin-top:100px">
+		<p class="name">${client.firstname} ${client.lastname}</p>
+		
+	</div>
 	<div>
 		<table class="table table-hover">
             
@@ -66,7 +70,8 @@
 		<a href="addCard.html?id=${client.id }"><input type="button" class="card" value="Demander une carte"></a>
 		<a href="withdrawal.html?id=${client.id }"><input type="button" class="cheque" value="Réaliser un retrait"></a>
 		<a href="transfer.html?id=${client.id }"><input type="button" class="cheque" value="Faire un virement interne"></a>
-		<a href="index.html?id=${client.id }"><input type="button" class="cheque" value="Revenir à l'accueil"></a>
+		<a href="index.html"><input type="button" class="cheque" value="Revenir à l'accueil"></a>
+
 	</div>
 	
 </body>

@@ -35,9 +35,19 @@
 <body>
 	<div style="margin-top:100px">
 		<p class="name">${client.firstname} ${client.lastname}</p>
+		<p class="name">Affichage des comptes courants</p>
 	</div>
 
-
+	<c:if test="${not empty message }">
+			<div style="color:red;text-align:center;size:x-large">
+				 ${message}		
+			</div>
+		</c:if>
+		<c:if test="${not empty message1 }">
+			<div style="color:red;text-align:center;size:x-large">
+				 ${message1}		
+			</div>
+		</c:if>
 
 
 
@@ -46,6 +56,7 @@
 				<!-- 	    Mettre un href a addCard.html?accountId= pour un retrait de carte -->
 					<div class ="account-list">
 							<h2>Effectuer un retrait d'espèces</h2>
+							<h3>Selctionner un compte</h3>
 							<table>
 								<tr>
 									<th> Numéro de compte </th>
@@ -65,18 +76,12 @@
 								<input type="text" name="value" id="value" style="margin-left : 0.5em;">
 								<button style="margin-left : 2em;" class="button">Confirmer</button>
 							</div>
+
 		
 							
 						</div>
 				</form>
 			</div>
-
-
-
-
-
-
-
 
 	<div class="transfer-button" style="margin-top:50px">
 
