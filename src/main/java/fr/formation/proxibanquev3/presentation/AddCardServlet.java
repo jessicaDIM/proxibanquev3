@@ -31,7 +31,12 @@ public class AddCardServlet extends HttpServlet {
 		req.setAttribute("accounts", accounts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/addCard.jsp").forward(req, resp);	
 	}
-	
+	/**
+     * Methode renvoyant les informations du compte utilise pour la demande de retrait de carte bleue
+     * Selon le résultat le cleint est renvoyé vers une page d'erreur (carte pas possible a créer) ou
+     * il revient sur son tableau de bord en cas de succes
+     * 
+     */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String accountIdNull = req.getParameter("compteADebiter");
