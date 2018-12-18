@@ -119,5 +119,33 @@ import javax.persistence.Table;
 			this.balance = balance;
 		}
 
+		/**
+		 * @return the openDate
+		 */
+		public LocalDate getOpenDate() {
+			return openDate;
+		}
+
+		/**
+		 * @param openDate the openDate to set
+		 */
+		public void setOpenDate(LocalDate openDate) {
+			this.openDate = openDate;
+		}
+
+		/**
+		 * @return the cheque
+		 */
+		public Cheque getCheque() {
+			return cheque;
+		}
+
+		/**
+		 * @param cheque the cheque to set
+		 */
+		public void setCheque(Cheque cheque) {
+			this.cheque = cheque;
+		}
+
 	}
 

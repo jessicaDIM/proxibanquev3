@@ -59,6 +59,20 @@ public class CreditCard {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	/**
+	 * @return the expirationDate
+	 */
+	public LocalDate getExpirationDate() {
+		return expirationDate;
+	}
+
+	/**
+	 * @param expirationDate the expirationDate to set
+	 */
+	public void setExpirationDate(LocalDate expirationDate) {
+		this.expirationDate = expirationDate;
+	}
 	
 }
 
