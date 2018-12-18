@@ -1,5 +1,8 @@
 package fr.formation.proxibanquev3.metier.entity;
-
+/**
+ * Classe permettant de savoir si l'edition d'un chéquier va etre possible
+ * @author Jessica Di Marco & Sandy Colin
+ */
 public class ChequeStatus {
 	
 	private boolean chequeIsOk;

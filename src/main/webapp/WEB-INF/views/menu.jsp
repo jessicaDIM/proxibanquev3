@@ -59,7 +59,7 @@
                     <td class="listecompte">${account.id}</td>
                     <td class="listecompte">${account.number}</td>
                     <td class="listecompte">${account.balance}</td>
-                    <td class="listecompte"><div id="infoCheque"><input type="button" name="cheque" value="Demande de chéquier" onclick="reponseCheque(event)"></div></td>
+                    <td class="listecompte"><div id="infoCheque"><input type="button" id="${account.id} " class="boutonCheque" value="Demande de chéquier" onclick="responseCheque(event)"></div></td>
 
                 </tr>
             </c:forEach>

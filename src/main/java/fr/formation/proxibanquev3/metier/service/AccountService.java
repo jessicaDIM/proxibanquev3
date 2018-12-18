@@ -204,6 +204,7 @@ public class AccountService {
 			//newCard.setType(type);
 			// On créé la carte en BDD pour avoir un id généré.
 			newCheque = this.chequeDao.create(new Cheque(LocalDate.now(), LocalDate.now()));
+
 			// On lie le nouveau chéquier au compte.
 			account.setCheque(newCheque);
 			// On met à jour le compte avec le lien vers la nouvelle carte.
