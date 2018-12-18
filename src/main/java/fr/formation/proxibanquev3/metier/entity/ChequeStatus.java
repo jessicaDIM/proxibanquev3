@@ -28,6 +28,7 @@ public class ChequeStatus {
 	public boolean isChequeIsOk() {
 		return chequeIsOk;
 	}
+	
 
 	/**
 	 * @param chequeIsOk the chequeIsOk to set

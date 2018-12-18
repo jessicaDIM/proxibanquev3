@@ -187,15 +187,17 @@ public class AccountService {
 				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
 				this.accountDao.update(account);
 				this.chequeDao.delete(checkId);
-				////////////////////////////Nouveau chéquier valable jusqu’au DATE_EXPIR en cours de distribution…
+				chequeStatus.setMessage("Nouveau chéquier valable jusqu’au " + LocalDate.now().plusMonths(3) + " en cours de distribution…");
 			} else {
 				// Sinon on indique qu'il ne faut pas créer de carte.
-				chequeIsOk = false;
-				/////////////////////////////////////// Impossible d’effectuer le retrait d’un nouveau chéquier pour ce compte avant le DATE_VALIDE
+				chequeStatus.setChequeIsOk(false);
+				chequeStatus.setMessage("Impossible d’effectuer le retrait d’un nouveau chéquier pour ce compte avant le " + account.getCheque().getReceptionDate().plusMonths(3));
 			}
+		} else {
+			chequeStatus.setMessage("Premier chéquier pour ce compte en cours de distribution…");
 		}
 		// Si il est possible d'ajouter une carte.
-		if (chequeIsOk) {
+		if (chequeStatus.isChequeIsOk()) {
 			// On prepare la nouvelle carte.
 			Cheque newCheque = new Cheque();
 			//newCard.setExpirationDate(LocalDate.now().plusMonths(3));
@@ -206,8 +208,6 @@ public class AccountService {
 			account.setCheque(newCheque);
 			// On met à jour le compte avec le lien vers la nouvelle carte.
 			this.accountDao.update(account);
-			
-			///////////////////////////////////////////Message “Premier chéquier pour ce compte en cours de distribution…”
 		}
 		return chequeStatus;
 		

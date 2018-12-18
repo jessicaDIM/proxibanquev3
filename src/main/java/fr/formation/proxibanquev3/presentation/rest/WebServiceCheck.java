@@ -10,7 +10,6 @@ import fr.formation.proxibanquev3.metier.entity.Account;
 import fr.formation.proxibanquev3.metier.entity.ChequeStatus;
 import fr.formation.proxibanquev3.metier.service.AccountService;
 
-import fr.formation.proxibanquev3.metier.service.AccountService;
 
 @Path("/menu")
 public class WebServiceCheck {
