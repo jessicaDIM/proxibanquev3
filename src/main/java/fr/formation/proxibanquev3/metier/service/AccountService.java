@@ -203,7 +203,7 @@ public class AccountService {
 			//newCard.setExpirationDate(LocalDate.now().plusMonths(3));
 			//newCard.setType(type);
 			// On créé la carte en BDD pour avoir un id généré.
-			newCheque = this.chequeDao.create(new Cheque(LocalDate.now(), LocalDate.now().plusDays(4));
+			newCheque = this.chequeDao.create(new Cheque(LocalDate.now(), LocalDate.now()));
 			// On lie le nouveau chéquier au compte.
 			account.setCheque(newCheque);
 			// On met à jour le compte avec le lien vers la nouvelle carte.
@@ -255,9 +255,6 @@ public class AccountService {
 		
 		
 	
-	/**
-	 * Met à jour le compte
-	 * @return un objet AccountService
-	 */
+
 
 }

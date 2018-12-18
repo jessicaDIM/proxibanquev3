@@ -1,25 +1,31 @@
-$(document).ready(function() {
-	$("#choco").selectmenu({
-		select : function(event, ui) {
-			console.log("Item sélectionné : ", ui);
-			var id = ui.item.element[0].id;
-			$.ajax({
-				url: "http://localhost:8080/proxibanquev3/webservices/chocostock/" + id
-			}).done(function(stock) {
-				var nbStock = parseInt(stock);
-				var stockinfoDiv = $("#stockinfo");
-				stockinfoDiv.empty();
-				if (nbStock > 0) {
-					// En stock
-					stockinfoDiv.append($("<span class=\"stock ok\">En stock !</span>"));
-				} else {
-					// Pas de stock
-					stockinfoDiv.append($("<span class=\"stock ko\">Pas de stock !</span>"));			
-				}
-			});
+function responseCheque(e) {
+	var input = e.target || e.currentTarget;
+	var accountId = input.id;
+	$.ajax({
+		url:"http://localhost:8080/proxibanquev3/webservices/menu",
+		type:"post",
+		data: {
+			"id" : accountId
+		}
+	}).done(function() {
+		$(".boutonCheque").css("visibility","hidden");      
+		if (chequeStatus.isChequeIsOK) {
+			var span1 = "<span class=\"cheque Ok\">";
+			$('#infoCheque').append($(span1 + chequeStatus.getMessage + "</span>"));
+			$("#infoCheque").css("color","green");
+		}
+		else {
+			var span2 ="<span class=\"cheque Ko\">";
+			$('#infoCheque').append($(span1 + chequeStatus.getMessage + "</span>"));
+			$("#infoCheque").css("color","red");  
 		}
 	});
-});
+}
+
+
+
+
+
 
 // “Premier chéquier pour ce compte en cours de distribution...”
 //: “Nouveau chéquier valable jusqu’au DATE_EXPIR encours de distribution...” avec DATE_EXPIR la date d’expiration du chéquie
