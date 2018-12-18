@@ -13,16 +13,13 @@ import fr.formation.proxibanquev3.metier.service.AccountService;
 
 @Path("/menu")
 public class WebServiceCheck {
-	
-
-	private AccountService accountService;
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)	
 	public ChequeStatus check(Account account) {
 		Integer accountId = account.getId();
-		ChequeStatus chequeStatus = accountService.withdrawCheck(accountId);
+		ChequeStatus chequeStatus = AccountService.getInstance().withdrawCheck(accountId);
 		return chequeStatus;
 	}
 
