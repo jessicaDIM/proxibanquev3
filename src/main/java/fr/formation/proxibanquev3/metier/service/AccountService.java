@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.formation.proxibanquev3.metier.entity.Account;
+import fr.formation.proxibanquev3.metier.entity.Cheque;
 import fr.formation.proxibanquev3.metier.entity.Client;
+import fr.formation.proxibanquev3.metier.entity.CreditCard;
 import fr.formation.proxibanquev3.metier.entity.CurrentAccount;
 import fr.formation.proxibanquev3.metier.entity.SavingsAccount;
 import fr.formation.proxibanquev3.persistance.AccountDao;
+import fr.formation.proxibanquev3.persistance.CheckDao;
 import fr.formation.proxibanquev3.persistance.ClientDao;
+import fr.formation.proxibanquev3.persistance.CreditCardDao;
 /**
  * Classe regroupant les traitements à effectuer sur les ccomptes. Respecte le
  * design pattern singleton.
@@ -22,6 +26,8 @@ public class AccountService {
 	private static final AccountService INSTANCE = new AccountService();
 	private AccountDao accountDao;
 	private ClientDao clientDao;
+	private CreditCardDao cardDao;
+	private CheckDao chequeDao;
 	
 	public AccountService() {
 		this.accountDao = AccountDao.getInstance();
@@ -142,7 +148,7 @@ public class AccountService {
 	 *         négatif. True sinon.
 	 */
 	public boolean withdrawCash(Float value, Integer accountId) {
-		
+		//Verifier compte courant
 		boolean withdrawOK = true;
 		Account compteDebite = this.accountDao.read(accountId);
 		if (value>300.00) {
@@ -163,8 +169,36 @@ public class AccountService {
 	 * @return False si le retrait n'est pas possible (date dernier chéquier inférieur à 3 mois). True sinon.
 	 */
 	public boolean withdrawCheck(Integer accountId) {
-		LocalDate.now();
-		return false;
+		
+		boolean resultOk = true;
+		Account account = this.accountDao.read(accountId);
+		// Si le compte avait déjà un chéquier.
+		if (account.getCheque() != null) {
+			// On vérifie que la date de reception du précédent est bien de plus de 3 mois
+			if(account.getCheque().getReceptionDate().isBefore(LocalDate.now().minusMonths(3))) {
+				// Retirer le lien entre l'ancien chéquier et le compte.
+				account.setCheque(null);
+				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
+				this.accountDao.update(account);				
+			} else {
+				// Sinon on indique qu'il ne faut pas créer de carte.
+				resultOk = false;
+			}
+		}
+		// Si il est possible d'ajouter une carte.
+		if (resultOk) {
+			// On prepare la nouvelle carte.
+			Cheque newCheque = new Cheque();
+			//newCard.setExpirationDate(LocalDate.now().plusMonths(3));
+			//newCard.setType(type);
+			// On créé la carte en BDD pour avoir un id généré.
+			newCheque = this.chequeDao.create(newCheque);
+			// On lie le nouveau chéquier au compte.
+			account.setCheque(newCheque);
+			// On met à jour le compte avec le lien vers la nouvelle carte.
+			this.accountDao.update(account);
+		}
+		return resultOk;
 		
 	}
 	/**
@@ -172,11 +206,43 @@ public class AccountService {
 	 * 
 	 * @return False si le retrait n'est pas possible (carte tjs valide). True sinon.
 	 */
-	public boolean withdrawCard(Integer accountId) {
-		LocalDate.now();
-		return false;
+	public boolean withdrawCard(Integer accountId, String type) {
 		
+		boolean resultOk = true;
+		//Account account = this.accountDao.read(accountId);
+		CurrentAccount currentAccount= (CurrentAccount) this.accountDao.read(accountId);
+		//if (account instanceof CurrentAccount)
+		// Si le compte avait déjà une carte et qu'elle a expirée.
+		if (currentAccount.getCard() != null) {
+			// On vérifie que la date d'expiration est bien dépassée.
+			if (currentAccount.getCard().getExpirationDate().isBefore(LocalDate.now())) {
+				// Retirer le lien entre l'ancienne carte et le compte.
+				currentAccount.setCard(null);
+				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
+				this.accountDao.update(currentAccount);				
+			} else { // « Impossible d’effectuer le retrait, votre ancienne carte est encore valide »
+				// Sinon on indique qu'il ne faut pas créer de carte.
+				resultOk = false;
+			}
+		}
+		// Si il est possible d'ajouter une carte.
+		if (resultOk) {
+			// On prepare la nouvelle carte.
+			CreditCard newCard = new CreditCard();
+			newCard.setExpirationDate(LocalDate.now().plusYears(3));
+			newCard.setType(type);
+			// On créé la carte en BDD pour avoir un id généré.
+			newCard = this.cardDao.create(newCard);
+			// On lie la nouvelle carte au compte.
+			currentAccount.setCard(newCard);
+			// On met à jour le compte avec le lien vers la nouvelle carte.
+			this.accountDao.update(currentAccount);
+		}
+		return resultOk;
 	}
+		
+		
+	
 	/**
 	 * Met à jour le compte
 	 * @return un objet AccountService
