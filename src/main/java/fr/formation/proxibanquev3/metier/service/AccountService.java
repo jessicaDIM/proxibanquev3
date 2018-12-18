@@ -190,7 +190,7 @@ public class AccountService {
 				resultOk = false;
 			}
 		}
-		// Si il est possible d'ajouter une carte.
+		// Si il est possible d'ajouter un chéquier.
 		if (resultOk) {
 			// On prepare la nouvelle carte.
 			Cheque newCheque = new Cheque();
