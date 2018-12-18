@@ -90,7 +90,7 @@
 		<div class="transfer-button" style="margin-top:50px">
 
 		<a href="menu.html?id=${client.id}">
-			<button class="button">Retour au menu </button>
+			<button class="button">Retour au tableau de bord </button>
 		</a>
 	</div>
 </body>

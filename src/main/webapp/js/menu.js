@@ -14,12 +14,12 @@ function responseCheque(e) {
 		if (chequeStatus.chequeIsOK) {
 			$('#infoCheque').append(chequeStatus.message);
 			$("#infoCheque").css("color","green");
-			console.log(chequeStatus.message);
+		
 		}
 		else {
 			$('#infoCheque').append(chequeStatus.message);
 			$("#infoCheque").css("color","red");  
-			console.log(chequeStatus.message);
+			
 		}
 	});
 }
