@@ -37,6 +37,8 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String identifiant = req.getParameter("identifiant");
+		if(identifiant==null) {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/error.jsp").forward(req, resp); }
 		String[] parts = identifiant.split(" ");
 		String firstnameClient = parts[0]; 
 		String lastnameClient = parts[1];

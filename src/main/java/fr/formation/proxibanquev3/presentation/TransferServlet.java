@@ -51,7 +51,7 @@ public class TransferServlet extends HttpServlet {
 	/**
      * Methode renvoyant les informations des comptes utilises pour le transfert ainsi que le montant du
      * transfert choisi par l'utilisateur. Si le transfert echoue dans la methode
-     * transfer() de ClientService, affiche un message d'erreur a l'utilisateur.
+     * transfer() de AccountService, affiche un message d'erreur a l'utilisateur.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

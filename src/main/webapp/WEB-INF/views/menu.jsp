@@ -49,6 +49,7 @@
                     <th class="listecompte">Id</th>
                     <th class="listecompte">Numéro de compte</th>
                     <th class="listecompte">Solde</th>
+                    <th class="listecomptes">Demande de chéquier</th>
 
                 </tr>
             </thead>
@@ -58,6 +59,7 @@
                     <td class="listecompte">${account.id}</td>
                     <td class="listecompte">${account.number}</td>
                     <td class="listecompte">${account.balance}</td>
+                    <td class="listecompte"><input type="button" name="cheque" value="Demande de chéquier"></td>
 
                 </tr>
             </c:forEach>
@@ -66,11 +68,11 @@
 	</div>
 
 	<div style="text-align:center">
-		<input type="button" class="cheque" value="Demande de chéquier">
-		<a href="addCard.html?id=${client.id }"><input type="button" class="card" value="Demander une carte"></a>
-		<a href="withdrawal.html?id=${client.id }"><input type="button" class="cheque" value="Réaliser un retrait"></a>
-		<a href="transfer.html?id=${client.id }"><input type="button" class="cheque" value="Faire un virement interne"></a>
-		<a href="index.html"><input type="button" class="cheque" value="Revenir à l'accueil"></a>
+		
+		<a href="addCard.html?id=${client.id }"><input type="button"  value="Demander une carte"></a>
+		<a href="withdrawal.html?id=${client.id }"><input type="button"  value="Réaliser un retrait"></a>
+		<a href="transfer.html?id=${client.id }"><input type="button"  value="Faire un virement interne"></a>
+		<a href="index.html"><input type="button" value="Se Déconnecter"></a>
 
 	</div>
 	

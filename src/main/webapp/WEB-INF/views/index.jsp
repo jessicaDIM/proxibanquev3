@@ -35,14 +35,14 @@
 <body>
 	<section class="head"></section>
 	<h1 class="page-title">Bienvenue sur Proxibanque 3.0.</h1>
-	<div>
+	<div style="text-align:center">
 
-		<form class="form-inline" method="post" action="">
-  			<div style="display:block; margin:auto">
-   				 <label for="identifiant" class="sr-only">Veuillez renseigner vos prénom et nom :  </label>
-  				 <input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Prénom Nom" style="margin-left:40%">
-  			</div>
-  			<div style="display:block; margin:auto">
+		<form  method="post" action="">
+  			<div style="text-align:center">
+   				 <label for="identifiant" >Veuillez renseigner vos prénom et nom :  </label>
+  				 <input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Prénom Nom" >
+  			
+  			
   			<button type="submit" class="btn btn-primary mb-2">Valider</button>  			
   			</div>
 		</form>

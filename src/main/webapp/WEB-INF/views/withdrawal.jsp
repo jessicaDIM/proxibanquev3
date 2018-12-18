@@ -55,8 +55,11 @@
 				<form method="post" action="">
 				<!-- 	    Mettre un href a addCard.html?accountId= pour un retrait de carte -->
 					<div class ="account-list">
+					<div class="left-list">
 							<h2>Effectuer un retrait d'espèces</h2>
-							<h3>Selctionner un compte</h3>
+							<h3>Sélectionner un compte</h3>
+							
+							
 							<table>
 								<tr>
 									<th> Numéro de compte </th>
@@ -71,7 +74,7 @@
 										<td class="balance">${account.balance}</td>
 								</c:forEach>
 							</table>
-							<div>
+							<div style="margin-top:15px">
 								<label for="value" class="text"> Montant du retrait : </label> 
 								<input type="text" name="value" id="value" style="margin-left : 0.5em;">
 								<button style="margin-left : 2em;" class="button">Confirmer</button>
@@ -80,13 +83,17 @@
 		
 							
 						</div>
+						</div>
 				</form>
 			</div>
 
-	<div class="transfer-button" style="margin-top:50px">
+	<div class="transfer-button" style="margin-top:50px; text-align:center">
 
+		<a href="menu.html?id=${client.id }">
+			<button class="button">Retour au tableau de bord</button>
+		</a>
 		<a href="index.html">
-			<button class="button">Retour à l'accueil</button>
+			<button class="button" style="margin-top:10px">Se déconnecter</button>
 		</a>
 	</div>
 </body>

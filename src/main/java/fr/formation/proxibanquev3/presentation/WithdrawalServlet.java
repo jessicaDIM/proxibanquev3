@@ -40,9 +40,9 @@ public class WithdrawalServlet extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/withdrawal.jsp").forward(req, resp);
 	}
 	/**
-     * Methode renvoyant les informations des comptes utilises pour le transfert ainsi que le montant du
-     * transfert choisi par l'utilisateur. Si le transfert echoue dans la methode
-     * transfer() de ClientService, affiche un message d'erreur a l'utilisateur.
+     * Methode renvoyant les informations du compte utilise pour le retrait ainsi que le montant 
+     *  choisi par l'utilisateur. Si le retrait echoue dans la methode
+     * withdrawCash() de AccountService, ça affiche un message d'erreur a l'utilisateur.
      */
    
 	@Override

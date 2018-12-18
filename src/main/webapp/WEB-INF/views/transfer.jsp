@@ -100,9 +100,15 @@
 			</div>
 		</c:if>
 		<div class="footer-button">
-			<a href="index.html">
-				<button class="button">Retour à l'accueil</button>
-			</a>
+			<div class="transfer-button" style="margin-top:50px ; text-align:center">
+
+		<a href="menu.html?id=${client.id }">
+			<button class="button">Retour au tableau de bord</button>
+		</a>
+		<a href="index.html">
+			<button class="button" style="margin-top:10px">Se déconnecter</button>
+		</a>
+	</div>
 		</div>
 	</section>
 </body>
