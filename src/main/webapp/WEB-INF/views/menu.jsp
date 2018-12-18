@@ -11,6 +11,10 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script type="text/javascript" src="js/menu.js"></script>
 <title>Accueil</title>
 
 <!-- Bootstrap core CSS -->
@@ -59,7 +63,7 @@
                     <td class="listecompte">${account.id}</td>
                     <td class="listecompte">${account.number}</td>
                     <td class="listecompte">${account.balance}</td>
-                    <td class="listecompte"><div id="infoCheque"><input type="button" id="${account.id} " class="boutonCheque" value="Demande de chéquier" onclick="responseCheque(event)"></div></td>
+                    <td class="listecompte"><div id="infoCheque"><input type="button" id="${account.id}" class="boutonCheque" value="Demande de chéquier" onclick="responseCheque(event)"></div></td>
 
                 </tr>
             </c:forEach>

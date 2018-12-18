@@ -1,23 +1,25 @@
 function responseCheque(e) {
 	var input = e.target || e.currentTarget;
 	var accountId = input.id;
+	var account = JSON.stringify({"id" : accountId});
+	
 	$.ajax({
 		url:"http://localhost:8080/proxibanquev3/webservices/menu",
 		type:"post",
-		data: {
-			"id" : accountId
-		}
-	}).done(function() {
+		contentType: "application/json",
+		data: account,
+		dataType: "json"
+	}).done(function(chequeStatus) {
 		$(".boutonCheque").css("visibility","hidden");      
-		if (chequeStatus.isChequeIsOK) {
-			var span1 = "<span class=\"cheque Ok\">";
-			$('#infoCheque').append($(span1 + chequeStatus.getMessage + "</span>"));
+		if (chequeStatus.chequeIsOK) {
+			$('#infoCheque').append(chequeStatus.message);
 			$("#infoCheque").css("color","green");
+			console.log(chequeStatus.message);
 		}
 		else {
-			var span2 ="<span class=\"cheque Ko\">";
-			$('#infoCheque').append($(span1 + chequeStatus.getMessage + "</span>"));
+			$('#infoCheque').append(chequeStatus.message);
 			$("#infoCheque").css("color","red");  
+			console.log(chequeStatus.message);
 		}
 	});
 }

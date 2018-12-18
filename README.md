@@ -3,23 +3,25 @@ Le lien vers le projet GitHub est :
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	Procédure d'installation
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-A. Tout d'abord, veuillez vérifier que la machine virtuelle Java est installée sur le système.
-	-> Si ce n'est pas le cas, vous pouvez télécharger Java à l'adresse suivante : https://www.java.com/fr/download/
-	
-B. Veuillez vérifier que le serveur web Apache TomCat est installé sur votre système.
-		-> Si ce n'est pas le cas, vous pouvez télécharger la version 8.5 de TomCat à l'adresse suivante : https://tomcat.apache.org/download-80.cgi
-		
-C. Veuillez vérifier qu'Système de Gestion de Base de Données (SGBD) est installé sur votre système.
-		--> Si ce n'est pas le cas, vous pouvez télécharger MySQL Community Server 8.0.13 (Oracle) à l'adresse suivante : https://dev.mysql.com/downloads/mysql/
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Procédure d'exécution
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Procédez à l'extraction et l'ouverture des ressources du livrable.
-		0. Configurer le réseau au port localhost 3306 et importer les fichiers dump-structure.sql et dump-data.sql. Le schéma correspondant au projet porte le nom : proxibanquev3.
-		1. Démarrer le serveur d'application Tomcat en cliquant sur le fichier "bin\startup.bat".
-		2. Glisser le livrable (fichier avec extension *.war) dans le répertoire Webapps du dossier d'installation de Tomcat.
-		3. Une fois l'application déployée, un dossier au nom du fichier war est visible dans le répertoire Webapps.
-		4. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanquev3/>
+1. Vérifier que Java est installé sur le système.
+-> Si ce n'est pas le cas, aller sur ce site: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Dans le cadre Java SE Development Kit 8u191, accepter la licence et télécharger le lien correspondant à votre système d'exploitation
+
+2. Vérifier que Apache Tomcat 8.5 est installé sur le système
+-> Si ce n'est pas le cas, aller sur ce site : https://tomcat.apache.org/download-80.cgi
+Télécharger dans l'onglet 8.5.35, au niveau de Core et choissisez le lien selon votre système d'exploitation
+
+3. Dans la base de données MySql Workbench, faire un Data_import (Server -> Data import -> Cocher Import form Self-contained file (et aller chercher les fichiers .sql dans votre ordinateur) -> Start Import)
+des fichiers BDD_Structurev3.sql (Structure de la base de données) et BDD_Datav3.sql (données des tables créées)
+(Le schéma de la base de données est proxibanquev2)
+
+4. Démarrer le serveur d'application Tomcat en cliquant sur le fichier "bin\startup.bat"
+
+5. Glisser le livrable (fichier avec extension *.war) dans répertoire Webapps du dossier d'installation de Tomcat
+
+6. Une fois l'application déployée, un dossier au nom du fichier war est visible dans le répertoire Webapps.
+
+7. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanquev3/>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	Test applicatif
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
