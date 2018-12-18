@@ -83,6 +83,7 @@ public class Cheque {
 	public void setReceptionDate(LocalDate receptionDate) {
 		this.receptionDate = receptionDate;
 	}
+	
 	@Override
 	public String toString() {
 		return this.id + "=" + this.receptionDate;
