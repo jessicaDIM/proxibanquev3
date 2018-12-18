@@ -13,19 +13,28 @@ import javax.persistence.Persistence;
 public class MySqlConnection {
 
 	public static final MySqlConnection INSTANCE = new MySqlConnection();
+	private EntityManager entityManager;
+	private EntityManagerFactory entityManagerFactory;
 
 	public static MySqlConnection getInstance() {
 		return MySqlConnection.INSTANCE;
 	}
-
-	private EntityManagerFactory entityManagerFactory;
+	
+	/**
+	 * Constructeur par défaut. Récupère l'instance d'EntityManagerFactory associée à notre unité de persistance "proxibanquev3" défini dans persistance.xml.
+	 */
 	
 	public MySqlConnection() {
 		this.entityManagerFactory = Persistence.createEntityManagerFactory("proxibanquev3");
+		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}
 	
+	/**
+	 * 
+	 * @return EntityManager une instance capable d'effectuer les opérations CRUD sur la base de données.
+	 */
 	public EntityManager getEntityManager() {
-		return this.entityManagerFactory.createEntityManager();
+		return this.entityManager;
 	}
 
 }
