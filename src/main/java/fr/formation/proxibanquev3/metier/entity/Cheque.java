@@ -36,6 +36,12 @@ public class Cheque {
 	 * @param sendDate
 	 * @param receptionDate
 	 */
+	
+	public Cheque(LocalDate sendDate, LocalDate receptionDate) {
+		this.sendDate = sendDate;
+		this.receptionDate = receptionDate;
+	}
+		
 	public Cheque(Integer id, LocalDate sendDate, LocalDate receptionDate) {
 		this.id = id;
 		this.sendDate = sendDate;

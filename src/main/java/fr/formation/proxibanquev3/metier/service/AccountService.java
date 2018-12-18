@@ -241,7 +241,7 @@ public class AccountService {
 		if (resultOk) {
 			// On prepare la nouvelle carte.
 			CreditCard newCard = new CreditCard();
-			newCard.setExpirationDate(LocalDate.now().plusYears(3));
+			newCard.setExpirationDate(LocalDate.now().plusMonths(3));
 			newCard.setType(type);
 			// On créé la carte en BDD pour avoir un id généré.
 			newCard = this.cardDao.create(newCard);
