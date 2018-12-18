@@ -35,11 +35,26 @@
 <body>
 	<div style="margin-top:100px">
 		<p class="name">${client.firstname} ${client.lastname}</p>
+		<p class="name">Demande de carte bleue</p>
 	</div>
-	<div>
-	<h2 style="text-align:center">Demande de Carte Bleue pour un compte courant : </h2>
-		<form method="post" action="">
-		<div class ="account-list">
+		<c:if test="${not empty message1 }">
+			<div style="color:red;text-align:center;size:x-large">
+				 ${message1}		
+			</div>
+		</c:if>
+		<c:if test="${not empty message2 }">
+			<div style="color:red;text-align:center;size:x-large">
+				 ${message2}		
+			</div>
+		</c:if>
+
+
+	<h3>Sélectionner un compte</h3>
+    <div>
+				<form method="post" action="">
+				<!-- 	    Mettre un href a addCard.html?accountId= pour un retrait de carte -->
+					<div class ="account-list">
+					<div class="left-list">
 		<table>
 			<tr>
 				<th> Numéro de compte </th>
@@ -53,15 +68,30 @@
 					</td>
 						<td class="balance">${account.balance}</td>
 			</c:forEach>
-		</table>
+		</table>	
+					</div>
 		
-		<label for="value" class="text"> Choix de carte </label> 
-		<input type="text" name="value" id="value" style="margin-left : 0.5em;">
 		
+		<div class="right-list" >
+		<h3>Sélectionner un type de carte</h3>
+		  <input class="form-check-input" type="radio" name="cardType" id="inlineRadio1" value="Visa premier">
+		  <label class="form-check-label" for="cardType">Visa Premier</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="cardType" id="inlineRadio2" value="Visa electron">
+		  <label class="form-check-label" for="cardType">Visa Electron</label>
+			</div>
+
 		<button style="margin-left : 2em;" class="button">Confirmer</button>				
-			<h2><a href="addCard.html?accountId=1">Ajouter une carte au compte d'id 1</a></h2>
+		
 	</div>
 	</form>
+	</div>
+		<div class="transfer-button" style="margin-top:50px">
+
+		<a href="menu.html?id=${client.id}">
+			<button class="button">Retour au menu </button>
+		</a>
 	</div>
 </body>
 </html>
