@@ -214,7 +214,6 @@ public class AccountService {
 		boolean resultOk = true;
 		//Account account = this.accountDao.read(accountId);
 		CurrentAccount currentAccount= (CurrentAccount) this.accountDao.read(accountId);
-		//if (account instanceof CurrentAccount)
 		// Si le compte avait déjà une carte et qu'elle a expirée.
 		if (currentAccount.getCard() != null) {
 			// On vérifie que la date d'expiration est bien dépassée.
