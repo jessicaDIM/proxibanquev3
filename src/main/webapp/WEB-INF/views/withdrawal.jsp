@@ -45,7 +45,6 @@
 				<form method="post" action="">
 				<!-- 	    Mettre un href a addCard.html?accountId= pour un retrait de carte -->
 					<div class ="account-list">
-						<div class="left-list">
 							<h2>Effectuer un retrait d'espèces</h2>
 							<table>
 								<tr>
@@ -66,36 +65,9 @@
 								<input type="text" name="value" id="value" style="margin-left : 0.5em;">
 								<button style="margin-left : 2em;" class="button">Confirmer</button>
 							</div>
-						</div>
-						<div class="right-list">
-							<h2>Demande de Carte Bleue</h2>
-								<table>
-								<tr>
-									<th> Numéro de compte </th>
-									<th class="balance"> Solde en € </th>
-								</tr>
-								<c:forEach var="account" items="${accounts}">
-									<tr class="data">
-										<td>
-											<input type="radio" id="${account.id}" name="compteADebiter" value="${account.id}">
-											<label for="${account.id}">n°${account.number}</label>
-										</td>
-										<td class="balance">${account.balance}</td>
-								</c:forEach>
-							</table>
-							<label for="value" class="text"> Choix de carte </label> 
-							<input type="text" name="value" id="value" style="margin-left : 0.5em;">
-							<button style="margin-left : 2em;" class="button">Confirmer</button>
-							
-							<h2>
-		<a href="addCard.html?accountId=1">Ajouter une carte au compte d'id 1</a>
-	</h2>
-	
-						</div>
-							
+		
 							
 						</div>
-					</div>
 				</form>
 			</div>
 
@@ -106,31 +78,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<div class="transfer-button" style="margin-top:50px">
->>>>>>> 5ea37688761fed0ce251d1b327799e360a741931
+
 		<a href="index.html">
 			<button class="button">Retour à l'accueil</button>
 		</a>

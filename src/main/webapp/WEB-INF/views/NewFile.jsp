@@ -65,3 +65,35 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<Account> currentAccount = new ArrayList();
+		List<Account> savingsAccount = new ArrayList();
+		Client client = (Client) req.getSession().getAttribute("client");
+		List<Account> accounts= client.getAccounts();
+		req.setAttribute("accounts", accounts);
+		for (Account account: accounts) {
+			if (account instanceof CurrentAccount) {
+				currentAccount.add(account);
+			} else { 
+				savingsAccount.add(account);
+			}
+			req.setAttribute("savingsAccounts", savingsAccount);
+			req.setAttribute("currentAccounts", currentAccount);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/menu.jsp").forward(req, resp);
+		}
+	}
