@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.formation.proxibanquev3.metier.entity.Account;
 import fr.formation.proxibanquev3.metier.entity.Cheque;
+import fr.formation.proxibanquev3.metier.entity.ChequeStatus;
 import fr.formation.proxibanquev3.metier.entity.Client;
 import fr.formation.proxibanquev3.metier.entity.CreditCard;
 import fr.formation.proxibanquev3.metier.entity.CurrentAccount;
@@ -170,9 +171,10 @@ public class AccountService {
 	 * @param accountId le compte à débiter.
 	 * @return False si le retrait n'est pas possible (date dernier chéquier inférieur à 3 mois). True sinon.
 	 */
-	public boolean withdrawCheck(Integer accountId) {
+	public ChequeStatus withdrawCheck(Integer accountId) {
 		
-		boolean resultOk = true;
+		ChequeStatus chequeStatus = new ChequeStatus();
+		
 		Account account = this.accountDao.read(accountId);
 		
 		// Si le compte avait déjà un chéquier.
@@ -185,13 +187,15 @@ public class AccountService {
 				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
 				this.accountDao.update(account);
 				this.chequeDao.delete(checkId);
+				////////////////////////////Nouveau chéquier valable jusqu’au DATE_EXPIR en cours de distribution…
 			} else {
 				// Sinon on indique qu'il ne faut pas créer de carte.
-				resultOk = false;
+				chequeIsOk = false;
+				/////////////////////////////////////// Impossible d’effectuer le retrait d’un nouveau chéquier pour ce compte avant le DATE_VALIDE
 			}
 		}
 		// Si il est possible d'ajouter une carte.
-		if (resultOk) {
+		if (chequeIsOk) {
 			// On prepare la nouvelle carte.
 			Cheque newCheque = new Cheque();
 			//newCard.setExpirationDate(LocalDate.now().plusMonths(3));
@@ -202,8 +206,10 @@ public class AccountService {
 			account.setCheque(newCheque);
 			// On met à jour le compte avec le lien vers la nouvelle carte.
 			this.accountDao.update(account);
+			
+			///////////////////////////////////////////Message “Premier chéquier pour ce compte en cours de distribution…”
 		}
-		return resultOk;
+		return chequeStatus;
 		
 	}
 	/**

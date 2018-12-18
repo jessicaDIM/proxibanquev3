@@ -20,8 +20,8 @@ public class WebServiceCheck {
 	@Consumes(MediaType.APPLICATION_JSON)	
 	public ChequeStatus check(Account account) {
 		Integer accountId = account.getId();
-		boolean response = accountService.withdrawCheck(accountId);
-		return null;
+		ChequeStatus chequeStatus = accountService.withdrawCheck(accountId);
+		return chequeStatus;
 	}
 
 	
