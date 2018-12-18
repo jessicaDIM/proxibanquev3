@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * Représentation de l'adresse d'un client
+ * @author Jessica Di Marco & Sandy Colin
+ */
 @Entity
 @Table(name="address")
 public class Address {

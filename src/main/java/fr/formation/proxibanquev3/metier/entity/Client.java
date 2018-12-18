@@ -15,7 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Repr�sentation d'un client de la banque.
+ * Représentation d'un client de la banque.
+ * @author Jessica Di Marco & Sandy Colin
  */
 // Déclare cette classe en tant qu'entité gérée par JPA/Hibernate.
 @Entity

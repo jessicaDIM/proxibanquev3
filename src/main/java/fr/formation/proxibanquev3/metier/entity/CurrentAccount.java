@@ -2,12 +2,18 @@ package fr.formation.proxibanquev3.metier.entity;
 
 import java.time.LocalDate;
 
+
+/**
+ * Représentation d'un compe courant de la banque.
+ * @author Jessica Di Marco & Sandy Colin
+ */
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Check;
+
 @Entity
 @DiscriminatorValue("CURRENT")
 public class CurrentAccount extends Account {

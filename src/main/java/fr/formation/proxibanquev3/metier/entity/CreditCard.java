@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Représentation d'une carte de crédit.
+ * @author Jessica Di Marco & Sandy Colin
+ */
 @Entity
 @Table(name="creditcard")
 public class CreditCard {

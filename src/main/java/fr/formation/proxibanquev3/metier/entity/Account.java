@@ -13,7 +13,10 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * Représentation d'un compte de la banque.
+ * @author Jessica Di Marco & Sandy Colin
+ */
 
 
 //Déclare cette classe en tant qu'entité gérée par JPA/Hibernate.

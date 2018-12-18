@@ -95,6 +95,11 @@
 		    <artifactId>jersey-servlet</artifactId>
 		    <version>1.17.1</version>
 		</dependency>
+		<dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.17.1</version>
+        </dependency>
 		<!-- This will get hamcrest-core automatically -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

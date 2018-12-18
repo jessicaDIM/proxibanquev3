@@ -4,7 +4,10 @@ import java.time.LocalDate;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+/**
+ * Représentation d'un compte de la banque épargne.
+ * @author Jessica Di Marco & Sandy Colin
+ */
 
 @Entity
 @DiscriminatorValue("SAVINGS")

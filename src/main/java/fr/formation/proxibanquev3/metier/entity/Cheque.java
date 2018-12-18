@@ -2,12 +2,18 @@ package fr.formation.proxibanquev3.metier.entity;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+/**
+ * Représentation d'un chèquier bancaire
+ * @author Jessica Di Marco & Sandy Colin
+ */
 @Entity
 @Table(name="cheque")
 public class Cheque {
@@ -77,5 +83,8 @@ public class Cheque {
 	public void setReceptionDate(LocalDate receptionDate) {
 		this.receptionDate = receptionDate;
 	}
-	
+	@Override
+	public String toString() {
+		return this.id + "=" + this.receptionDate;
+	}
 }
