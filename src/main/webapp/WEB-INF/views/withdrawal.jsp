@@ -85,6 +85,11 @@
 							<label for="value" class="text"> Choix de carte </label> 
 							<input type="text" name="value" id="value" style="margin-left : 0.5em;">
 							<button style="margin-left : 2em;" class="button">Confirmer</button>
+							
+							<h2>
+		<a href="addCard.html?accountId=1">Ajouter une carte au compte d'id 1</a>
+	</h2>
+	
 						</div>
 							
 							
