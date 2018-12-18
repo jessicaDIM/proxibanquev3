@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,9 +40,10 @@
 
 
 
+
     <div class="transfer-container">
 				<form method="post" action="">
-				
+				<!-- 	    Mettre un href a addCard.html?accountId= pour un retrait de carte -->
 					<div class ="account-list">
 						<div class="left-list">
 							<h2>Effectuer un retrait d'espèces</h2>
@@ -129,6 +130,7 @@
 
 
 	<div class="transfer-button" style="margin-top:50px">
+>>>>>>> 5ea37688761fed0ce251d1b327799e360a741931
 		<a href="index.html">
 			<button class="button">Retour à l'accueil</button>
 		</a>

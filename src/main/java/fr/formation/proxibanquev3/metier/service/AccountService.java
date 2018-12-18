@@ -172,14 +172,17 @@ public class AccountService {
 		
 		boolean resultOk = true;
 		Account account = this.accountDao.read(accountId);
+		
 		// Si le compte avait déjà un chéquier.
 		if (account.getCheque() != null) {
 			// On vérifie que la date de reception du précédent est bien de plus de 3 mois
 			if(account.getCheque().getReceptionDate().isBefore(LocalDate.now().minusMonths(3))) {
+				Integer checkId= account.getCheque().getId();
 				// Retirer le lien entre l'ancien chéquier et le compte.
 				account.setCheque(null);
 				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
-				this.accountDao.update(account);				
+				this.accountDao.update(account);
+				this.chequeDao.delete(checkId);
 			} else {
 				// Sinon on indique qu'il ne faut pas créer de carte.
 				resultOk = false;
@@ -216,10 +219,12 @@ public class AccountService {
 		if (currentAccount.getCard() != null) {
 			// On vérifie que la date d'expiration est bien dépassée.
 			if (currentAccount.getCard().getExpirationDate().isBefore(LocalDate.now())) {
+				Integer cardId= currentAccount.getCard().getId();
 				// Retirer le lien entre l'ancienne carte et le compte.
 				currentAccount.setCard(null);
 				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
-				this.accountDao.update(currentAccount);				
+				this.accountDao.update(currentAccount);	
+				this.cardDao.delete(cardId);
 			} else { // « Impossible d’effectuer le retrait, votre ancienne carte est encore valide »
 				// Sinon on indique qu'il ne faut pas créer de carte.
 				resultOk = false;
@@ -247,8 +252,8 @@ public class AccountService {
 	 * Met à jour le compte
 	 * @return un objet AccountService
 	 */
-	public AccountService update() {
-		return null;
-		
-	}
+//	public AccountService update() {
+//		return null;
+//		
+//	}
 }

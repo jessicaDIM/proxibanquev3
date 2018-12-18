@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxibanquev3.metier.service.AccountService;
 
-
-
 public class AddCardServlet extends HttpServlet {
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +18,7 @@ public class AddCardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Integer accountId = Integer.parseInt(req.getParameter("accountId"));
-		if (AccountService.getInstance().linkNewCard(accountId, "premier")) {
+		if (AccountService.getInstance().withdrawCard(accountId, "premier")) {
 			resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");			
 		} else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/views/card_error.jsp").forward(req, resp);
