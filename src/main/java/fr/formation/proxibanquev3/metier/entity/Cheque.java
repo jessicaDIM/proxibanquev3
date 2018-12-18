@@ -84,8 +84,4 @@ public class Cheque {
 		this.receptionDate = receptionDate;
 	}
 	
-	@Override
-	public String toString() {
-		return this.id + "=" + this.receptionDate;
-	}
 }
