@@ -67,7 +67,7 @@
         </table>
 	</div>
 
-	<div style="text-align:center">
+	<div style="text-align:center; margin-bottom:100px">
 		
 		<a href="addCard.html?id=${client.id }"><input type="button"  value="Demander une carte"></a>
 		<a href="withdrawal.html?id=${client.id }"><input type="button"  value="Réaliser un retrait"></a>

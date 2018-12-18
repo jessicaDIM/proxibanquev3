@@ -8,7 +8,7 @@
 <title>Retrait impossible</title>
 </head>
 <body>
-	<h1>Impossible d'ajouter une carte pour ce compte.</h1>
+	<h1>Impossible d’effectuer le retrait, votre ancienne carte est encore valide.</h1>
 	
 	
 	<div class="transfer-button" style="margin-top:50px">

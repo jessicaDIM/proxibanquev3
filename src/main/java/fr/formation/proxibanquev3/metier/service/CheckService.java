@@ -1,11 +1,11 @@
 package fr.formation.proxibanquev3.metier.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import fr.formation.proxibanquev3.metier.entity.Cheque;
-import fr.formation.proxibanquev3.metier.entity.CreditCard;
 import fr.formation.proxibanquev3.persistance.CheckDao;
-import fr.formation.proxibanquev3.persistance.CreditCardDao;
+
 /**
  * Clsse regroupant les traitements � effectuer sur les clients. Respecte le
  * design pattern singleton.
@@ -27,10 +27,10 @@ public class CheckService {
 		return CheckService.INSTANCE;
 	}
 
-	private CheckDao daoCard;
+	private CheckDao daoCheck;
 
 	public CheckService() {
-		this.daoCard = CheckDao.getInstance();
+		this.daoCheck = CheckDao.getInstance();
 	}
 
 	/**
@@ -41,13 +41,21 @@ public class CheckService {
 	 * @return un nouvel objet CreditCard
 	 */
 	public Cheque create(Integer id, LocalDate sendDate, LocalDate receptionDate) {
-		return this.daoCard.create(new Cheque(id, sendDate, receptionDate));
+		return this.daoCheck.create(new Cheque(id, sendDate, receptionDate));
 	}
 	/**
 	 * Supprime un chéquier selon son id
 	 * @param id identifiant du chéquier
 	 */
 	public void delete(Integer id) {
-		this.daoCard.delete(id);
+		this.daoCheck.delete(id);
+	}
+	
+	public List<Cheque> getChecks() {
+		return this.daoCheck.readAll();
+	}
+	
+	public Cheque getCheck(Integer id) {
+		return this.daoCheck.read(id);
 	}
 }
